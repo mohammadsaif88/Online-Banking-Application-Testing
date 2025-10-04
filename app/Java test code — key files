@@ -1,0 +1,23 @@
+package com.example.onlinebanking.base;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
+import java.nio.file.Paths;
+
+public class BaseTest {
+    protected WebDriver driver;
+    protected String baseUrl;
+
+    @BeforeClass
+    public void beforeClass(){
+        // Note: ensure chromedriver is on PATH or specify path via system property
+        driver = new ChromeDriver();
+        baseUrl = System.getProperty("baseUrl", "http://localhost:8000/app");
+    }
+
+    @AfterClass
+    public void afterClass(){
+        if(driver != null) driver.quit();
+    }
+}
