@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Dashboard</title></head>
+<body>
+  <h2>Dashboard</h2>
+  <div id="balance">Balance: <span id="bal">1000</span></div>
+  <a href="transfer.html">Transfer Funds</a><br/>
+  <a href="transactions.html">View Transactions</a>
+  <script>
+    // simple storage via localStorage for demo
+    if(!localStorage.getItem('balance')) localStorage.setItem('balance','1000');
+    document.getElementById('bal').innerText = localStorage.getItem('balance');
+  </script>
+</body>
+</html>
