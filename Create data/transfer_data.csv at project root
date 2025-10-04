@@ -1,0 +1,4 @@
+toAccount,amount,expectedMsg
+accA,100,Transfer successful
+accB,2000,Insufficient funds
+accC,-10,Enter valid amount
