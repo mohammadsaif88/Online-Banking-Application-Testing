@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Transfer</title></head>
+<body>
+  <h2>Funds Transfer</h2>
+  <label>To Account: <input id="toAcc"/></label><br/>
+  <label>Amount: <input id="amount" type="number"/></label><br/>
+  <button id="transferBtn">Transfer</button>
+  <div id="message"></div>
+  <script>
+    document.getElementById('transferBtn').onclick = function(){
+      var amt = Number(document.getElementById('amount').value || 0);
+      var bal = Number(localStorage.getItem('balance') || 0);
+      var msg = document.getElementById('message');
+      if(amt <= 0){ msg.innerText = 'Enter valid amount'; return;}
+      if(amt > bal){ msg.innerText = 'Insufficient funds'; return;}
+      bal -= amt;
+      localStorage.setItem('balance', String(bal));
+      // add a transaction log in localStorage
+      var tx = JSON.parse(localStorage.getItem('tx') || '[]');
+      tx.push({to: document.getElementById('toAcc').value||'unknown', amount: amt, date: new Date().toISOString()});
+      localStorage.setItem('tx', JSON.stringify(tx));
+      msg.innerText = 'Transfer successful';
+    };
+  </script>
+</body>
+</html>
