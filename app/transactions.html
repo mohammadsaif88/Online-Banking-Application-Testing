@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Transactions</title></head>
+<body>
+  <h2>Transactions</h2>
+  <ul id="list"></ul>
+  <script>
+    var tx = JSON.parse(localStorage.getItem('tx') || '[]');
+    var list = document.getElementById('list');
+    tx.forEach(function(t){
+      var li = document.createElement('li');
+      li.innerText = t.date + ' -> ' + t.to + ' : ' + t.amount;
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>
