@@ -1,0 +1,28 @@
+online-banking-test/
+├── app/                          # demo web pages to serve locally
+│   ├── index.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── transfer.html
+│   └── transactions.html
+├── db/
+│   └── banking_init.sql
+├── src/
+│   └── test/
+│       └── java/
+│           └── com.example.onlinebanking/
+│               ├── base/
+│               │   └── BaseTest.java
+│               ├── pages/
+│               │   ├── LoginPage.java
+│               │   ├── DashboardPage.java
+│               │   ├── TransferPage.java
+│               │   └── TransactionsPage.java
+│               ├── utils/
+│               │   ├── DBUtil.java
+│               │   └── CSVDataProvider.java
+│               └── tests/
+│                   ├── LoginTests.java
+│                   └── TransferTests.java
+├── pom.xml
+└── testng.xml
